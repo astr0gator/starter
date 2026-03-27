@@ -1,3 +1,4 @@
+# Configure StyLua formatting for this Neovim config repo.
 column_width = 120
 line_endings = "Unix"
 indent_type = "Spaces"

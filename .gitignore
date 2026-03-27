@@ -1,0 +1,4 @@
+# Ignore transient files that should never live in this repo.
+.DS_Store
+.nvimlog
+*.bak

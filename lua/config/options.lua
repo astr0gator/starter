@@ -1,0 +1,29 @@
+-- Set baseline Neovim options for editing behavior and UI defaults.
+local opt = vim.opt
+
+opt.termguicolors = true
+opt.guicursor = "n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20-Cursor,t:block-TermCursor"
+opt.number = true
+opt.relativenumber = true
+opt.laststatus = 3
+opt.signcolumn = "yes"
+opt.mouse = "a"
+opt.clipboard = "unnamedplus"
+opt.ignorecase = true
+opt.smartcase = true
+opt.showmode = false
+opt.showcmd = true
+opt.updatetime = 250
+opt.timeoutlen = 1000
+opt.splitright = true
+opt.splitbelow = true
+opt.cursorline = true
+opt.scrolloff = 0
+opt.sidescrolloff = 8
+opt.wrap = false
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.autoindent = true
+opt.smartindent = true

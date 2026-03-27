@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Run the local Neovim test suite before allowing a commit.
+
+set -eu
+
+repo_root=$(git rev-parse --show-toplevel)
+
+echo "pre-commit: running Neovim tests"
+sh "$repo_root/tests/run.sh"
