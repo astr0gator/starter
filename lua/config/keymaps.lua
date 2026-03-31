@@ -94,6 +94,14 @@ map({ "n", "v" }, "<A-j>", "<C-d>zz",        { noremap = true, silent = true, de
 map({ "n", "v" }, "<A-k>", "<C-u>zz",        { noremap = true, silent = true, desc = "Scroll — half page up, center cursor" })
 map({ "n", "v", "x" }, "<C-j>", "<C-d>",    { remap = true, silent = true, desc = "Scroll — half page down" })
 map({ "n", "v", "x" }, "<C-k>", "<C-u>",    { remap = true, silent = true, desc = "Scroll — half page up" })
+map("n", "zt", "H", { noremap = true, desc = "Scroll — current line to top" })
+map("n", "zz", "M", { noremap = true, desc = "Scroll — current line to center" })
+map("n", "zb", "L", { noremap = true, desc = "Scroll — current line to bottom" })
+
+-- ── Buffer Cycle ───────────────────────────────────────────────────────────────
+
+map("n", "<S-h>", "<cmd>bprevious<CR>",      { desc = "Previous buffer" })
+map("n", "<S-l>", "<cmd>bnext<CR>",          { desc = "Next buffer" })
 
 -- ── Edit: Delete (void register) ──────────────────────────────────────────────
 
@@ -158,7 +166,8 @@ map("n", "U", "<C-r>",                       { desc = "Redo" })
 
 -- ── Misc ──────────────────────────────────────────────────────────────────────
 
-map("n", ";", ":",                           { desc = "Command mode" })
+-- ";" kept as native f/t repeat (reverted from ":" mapping)
+map("n", "<leader>;", ":",                    { desc = "Command mode" })
 map("t", "<Esc>", "<C-\\><C-n>",             { noremap = true, silent = true, desc = "Exit terminal mode to normal" })
 
 -- ── Which-key ─────────────────────────────────────────────────────────────────

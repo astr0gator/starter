@@ -20,5 +20,6 @@ return {
     map(scroll_modes, "<C-u>", function()
       scroll.ctrl_u({ duration = 200 })
     end, { desc = "Scroll — half page up" })
+
   end,
 }

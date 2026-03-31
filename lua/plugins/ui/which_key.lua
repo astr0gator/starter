@@ -6,8 +6,11 @@ return {
     preset = "modern",
     delay = 150,
     notify = false,
-    -- Don't trigger in operator-pending mode (breaks flash remote)
-    triggers = { "<leader>" },
+    -- Use automatic triggers everywhere except operator-pending mode,
+    -- which interferes with flash.nvim's remote motions.
+    triggers = {
+      { "<auto>", mode = "nixstc" },
+    },
     spec = {
       { "<leader>x", desc = "Close buffer" },
       { "<C-j>", desc = "Scroll — half page down" },
