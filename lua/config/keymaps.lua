@@ -78,6 +78,7 @@ map("n", "gh", "^",                          { desc = "Navigate — to line (BOL
 map("v", "gh", "^",                          { desc = "Navigate — to line (BOL, non-blank)" })
 map("n", "gl", "$",                          { desc = "Navigate — to line (EOL)" })
 map("v", "gl", "$",                          { desc = "Navigate — to line (EOL)" })
+map("n", "<C-0>", "$",                        { noremap = true, desc = "Navigate — to line (EOL)" })
 -- Flash: s — jump by character, S — jump by treesitter node (functions, params, etc.)
 
 -- ── Navigation: Flash ────────────────────────────────────────────────────────────
@@ -151,6 +152,13 @@ map("v", "<M-C-j>", ":m '>+1<CR>gv=gv",      { noremap = true, silent = true, de
 -- ── Edit: Insert Snippets ─────────────────────────────────────────────────────
 
 map("i", "[[", "[ ] ",                       { noremap = true, desc = "Insert — empty checkbox [ ]" })
+
+-- ── Edit: Insert Mode — Emacs Style ───────────────────────────────────────────
+
+map("i", "<C-e>", "<C-o>$",                   { noremap = true, desc = "Insert — end of line" })
+map("i", "<C-a>", "<C-o>^",                   { noremap = true, desc = "Insert — start of line" })
+map("i", "<C-f>", "<C-o>a",                   { noremap = true, desc = "Insert — forward character" })
+map("i", "<C-b>", "<C-o>h",                   { noremap = true, desc = "Insert — backward character" })
 
 -- ── Clipboard ─────────────────────────────────────────────────────────────────
 
