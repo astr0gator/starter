@@ -31,10 +31,12 @@ autocmd("ColorScheme", {
 })
 
 -- Reload config command
-vim.api.nvim_create_user_command("Rel", function()
+local function reload_config()
   package.loaded['config.keymaps'] = nil
   package.loaded['config.autocmds'] = nil
   require("config.keymaps")
   require("config.autocmds")
   vim.notify("Config reloaded!", vim.log.levels.INFO)
-end, { desc = "Reload config" })
+end
+vim.api.nvim_create_user_command("Rel", reload_config, { desc = "Reload config" })
+vim.cmd.cabbrev("rel Rel")

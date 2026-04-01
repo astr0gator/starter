@@ -60,6 +60,12 @@ map("n", "<leader>q", "<Esc>:wq<CR>",        { desc = "Save and quit" })
 map("n", "<leader>Q", "<Esc>:q!<CR>",        { desc = "Quit without saving" })
 map("n", "<leader>x", close_current_buffer,  { desc = "Close buffer" })
 
+-- ── Shift Passthrough ──────────────────────────────────────────────────────────
+
+map({ "n", "i", "v" }, "<S-Space>", "<Space>", {})
+map("i", "<Delete>", "<C-o>x", { noremap = true, desc = "Insert — forward delete" })
+map("n", "<BS>", '"_X', { noremap = true, desc = "Delete char — backward, void register" })
+
 -- ── Search ────────────────────────────────────────────────────────────────────
 
 map("n", "<Esc>", function()
