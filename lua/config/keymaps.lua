@@ -74,11 +74,11 @@ end, { desc = "Close Neo-tree or clear search" })
 
 -- ── Navigation ────────────────────────────────────────────────────────────────
 
-map("n", "gh", "^",                          { desc = "Navigate — to line (BOL, non-blank)" })
+map({ "n", "o" }, "gh", "^",                 { desc = "Navigate — to line (BOL, non-blank)" })
 map("v", "gh", "^",                          { desc = "Navigate — to line (BOL, non-blank)" })
-map("n", "gl", "$",                          { desc = "Navigate — to line (EOL)" })
+map({ "n", "o" }, "gl", "$",                 { desc = "Navigate — to line (EOL)" })
 map("v", "gl", "$",                          { desc = "Navigate — to line (EOL)" })
-map("n", "<C-0>", "$",                        { noremap = true, desc = "Navigate — to line (EOL)" })
+map({ "n", "o" }, "<C-0>", "$",              { noremap = true, desc = "Navigate — to line (EOL)" })
 -- Flash: s — jump by character, S — jump by treesitter node (functions, params, etc.)
 
 -- ── Navigation: Flash ────────────────────────────────────────────────────────────
