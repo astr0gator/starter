@@ -59,28 +59,8 @@ autocmd("FileType", {
   end,
 })
 
--- Save and restore fold state, cursor position, and scroll
-vim.opt.viewoptions = { "folds", "cursor", "curdir" }
-
-autocmd("BufWinLeave", {
-  pattern = "*",
-  desc = "Save view (folds, cursor) on buffer leave",
-  callback = function()
-    if vim.bo.buflisted then
-      vim.cmd.mkview({ mods = { emsg_silent = true } })
-    end
-  end,
-})
-
-autocmd("BufWinEnter", {
-  pattern = "*",
-  desc = "Restore view (folds, cursor) on buffer enter",
-  callback = function()
-    if vim.bo.buflisted then
-      vim.cmd.loadview({ mods = { emsg_silent = true } })
-    end
-  end,
-})
+-- Save and restore cursor position only (no fold persistence)
+vim.opt.viewoptions = { "cursor", "curdir" }
 
 -- Set cursor color after colorscheme changes
 autocmd("ColorScheme", {
