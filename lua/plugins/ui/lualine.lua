@@ -14,7 +14,9 @@ return {
       extensions = { "neo-tree" },
     },
     sections = {
-      lualine_a = { "mode" },
+      lualine_a = {
+        { "mode", color = { bg = "none", fg = "#888888" } },
+      },
       lualine_b = { "branch", "diff", "diagnostics" },
       lualine_c = {
         {
@@ -52,7 +54,7 @@ return {
           function() return "  " .. vim.fn.line("$") end,
           color = { bg = "none", fg = "#888888" },
         },
-        { "progress" },
+        { "progress", color = { bg = "none", fg = "#888888" } },
       },
     },
   },

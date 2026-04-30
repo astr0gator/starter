@@ -81,3 +81,17 @@ local function reload_config()
 end
 vim.api.nvim_create_user_command("Rel", reload_config, { desc = "Reload config" })
 vim.cmd.cabbrev("rel Rel")
+
+autocmd("InsertEnter", {
+  callback = function()
+    vim.opt.cursorline = true
+    local bg = vim.o.background == "dark" and "#333345" or "#e8e8ee"
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = bg })
+  end,
+})
+
+autocmd("InsertLeave", {
+  callback = function()
+    vim.opt.cursorline = false
+  end,
+})
