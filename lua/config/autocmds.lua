@@ -35,7 +35,30 @@ autocmd("FileType", {
     vim.opt_local.foldmethod = "expr"
     vim.opt_local.foldexpr = "v:lua.markdown_foldexpr()"
     vim.opt_local.foldtext = "v:lua.markdown_foldtext()"
-    vim.opt_local.foldlevelstart = 99
+    vim.opt_local.foldlevel = 99
+
+    -- First time: all folds open (foldlevel=99). On revisit: restore saved folds.
+    vim.schedule(function()
+      vim.cmd("silent! loadview")
+    end)
+
+    -- Save fold state when leaving the window
+    vim.api.nvim_create_autocmd("BufWinLeave", {
+      buffer = 0,
+      callback = function()
+        vim.cmd("silent! mkview")
+      end,
+    })
+
+    -- Restore fold state when switching back to this buffer
+    vim.api.nvim_create_autocmd("BufWinEnter", {
+      buffer = 0,
+      callback = function()
+        vim.schedule(function()
+          vim.cmd("silent! loadview")
+        end)
+      end,
+    })
 
     local bopts = { buffer = true, noremap = true, silent = true }
 
@@ -59,8 +82,7 @@ autocmd("FileType", {
   end,
 })
 
--- Save and restore cursor position only (no fold persistence)
-vim.opt.viewoptions = { "cursor", "curdir" }
+vim.opt.viewoptions = { "cursor", "curdir", "folds" }
 
 -- Set cursor color after colorscheme changes
 autocmd("ColorScheme", {
