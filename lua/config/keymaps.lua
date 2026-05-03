@@ -177,6 +177,10 @@ map("n", "yc", function()
   vim.notify("Yanked: " .. line, vim.log.levels.INFO)
 end, { desc = "Yank clean — strip [ ] and | suffix" })
 
+-- ── Select All ────────────────────────────────────────────────────────────────
+
+map("n", "<C-a>", "ggVG", { desc = "Select all" })
+
 -- ── Clipboard ─────────────────────────────────────────────────────────────────
 
 map("v", "<C-c>", '"+y',                     { noremap = true, silent = true, desc = "Clipboard — copy selection to system register (visual)" })
